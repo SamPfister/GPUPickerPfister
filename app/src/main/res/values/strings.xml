@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">GPUPicker</string>
+    <string name="NVbutton">Nvidia</string>
+    <string name="AMDbutton">AMD</string>
+    <string name="cb1">Simple Web Browsing/Productivity</string>
+    <string name="cb2">Light/Moderate gaming</string>
+    <string name="cb3">Intense/high refresh rate gaming</string>
+    <string name="cb4">Light editing/modeling/etc.</string>
+    <string name="cb5">Heavy editing/modeling/etc.</string>
+    <string name="spin1">1080p</string>
+    <string name="spin2">1440p</string>
+    <string name="spin3">4K</string>
+    <string-array name="monitor_array">
+        <item>1080p</item>
+        <item>1440p</item>
+        <item>4K</item>
+    </string-array>
+
+
+</resources>
