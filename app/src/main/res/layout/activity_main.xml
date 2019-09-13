@@ -144,5 +144,21 @@
         app:layout_constraintStart_toEndOf="@+id/q4text"
         app:layout_constraintTop_toBottomOf="@+id/switch1" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find a GPU"
+        android:layout_marginBottom="@dimen/margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:drawableBottom="@mipmap/card_foreground"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/TextSize"
+        android:onClick="checkbox"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
