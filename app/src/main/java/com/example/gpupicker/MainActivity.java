@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
         // spinner code from https://developer.android.com/guide/topics/ui/controls/spinner
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        addListenerOnButton();
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         // Spinner click listener
@@ -42,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
-
     }
 
     @Override
@@ -57,21 +55,7 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
     public void onNothingSelected(AdapterView<?> arg0) {
         Toast.makeText(MainActivity.this, "Select a brand", Toast.LENGTH_SHORT).show();
     }
-    public void addListenerOnButton() {
-        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
-        btnDisplay = (Button) findViewById(R.id.button);
-        btnDisplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                // get selected radio button from radioGroup
-                int selectedId = radioGroup.getCheckedRadioButtonId();
-                // find the radiobutton by returned id
-                radioButton = (RadioButton) findViewById(selectedId);
-                Toast.makeText(MainActivity.this, radioButton.getText(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
@@ -122,33 +106,72 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
     }
 
     public void sendInfo(View v){
-        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        radioGroup = findViewById(R.id.radioGroup);
         int selectedId = radioGroup.getCheckedRadioButtonId();
-        radioButton = (RadioButton) findViewById(selectedId);
+        radioButton = findViewById(selectedId);
         String rgText = (String) radioButton.getText();
-        CheckBox cb1 = (CheckBox) findViewById(R.id.checkBox1);
-        CheckBox cb2 = (CheckBox) findViewById(R.id.checkBox2);
-        CheckBox cb3 = (CheckBox) findViewById(R.id.checkBox3);
-        CheckBox cb4 = (CheckBox) findViewById(R.id.checkBox4);
-        CheckBox cb5 = (CheckBox) findViewById(R.id.checkBox5);
+        CheckBox cb1 = findViewById(R.id.checkBox1);
+        CheckBox cb2 = findViewById(R.id.checkBox2);
+        CheckBox cb3 = findViewById(R.id.checkBox3);
+        CheckBox cb4 = findViewById(R.id.checkBox4);
+        CheckBox cb5 = findViewById(R.id.checkBox5);
+        String cbString1, cbString2, cbString3, cbString4, cbString5;
         boolean cbval1 = cb1.isChecked();
+        if(cbval1){
+            cbString1 = "true";
+        }
+        else{
+            cbString1 = "false";
+        }
         boolean cbval2 = cb2.isChecked();
+        if(cbval2){
+            cbString2 = "true";
+        }
+        else{
+            cbString2 = "false";
+        }
         boolean cbval3 = cb3.isChecked();
+        if(cbval3){
+            cbString3 = "true";
+        }
+        else{
+            cbString3 = "false";
+        }
         boolean cbval4 = cb4.isChecked();
+        if(cbval4){
+           cbString4 = "true";
+        }
+        else{
+            cbString4 = "false";
+        }
         boolean cbval5 = cb5.isChecked();
-        Switch switch1 = (Switch) findViewById(R.id.switch1);
+        if(cbval5){
+            cbString5 = "true";
+        }
+        else{
+            cbString5 = "false";
+        }
+        Switch switch1 = findViewById(R.id.switch1);
         boolean switchval = switch1.isChecked();
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        String switchString;
+        if(switchval){
+            switchString = "true";
+        }
+        else{
+            switchString = "false";
+        }
+        Spinner spinner = findViewById(R.id.spinner);
         String spinnerval = spinner.getSelectedItem().toString();
         Intent intent = new Intent(this, output.class);
         intent.putExtra(output.RG_TEXT, rgText);
-        intent.putExtra(output.CB1_VAL, cbval1);
-        intent.putExtra(output.CB2_VAL, cbval2);
-        intent.putExtra(output.CB3_VAL, cbval3);
-        intent.putExtra(output.CB4_VAL, cbval4);
-        intent.putExtra(output.CB5_VAL, cbval5);
-        intent.putExtra(output.SWITCH_VAL, switchval);
+        intent.putExtra(output.CB1_VAL, cbString1);
+        intent.putExtra(output.CB2_VAL, cbString2);
+        intent.putExtra(output.CB3_VAL, cbString3);
+        intent.putExtra(output.CB4_VAL, cbString4);
+        intent.putExtra(output.CB5_VAL, cbString5);
+        intent.putExtra(output.SWITCH_VAL, switchString);
         intent.putExtra(output.SPINNER_VAL, spinnerval);
+        startActivity(intent);
     }
 
 }

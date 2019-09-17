@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/q1Text"
@@ -163,7 +164,7 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/colorText"
         android:textSize="@dimen/TextSize"
-        android:onClick="checkbox"
+        android:onClick="sendInfo"
         />
 
 
